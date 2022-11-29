@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { Routes, Route, Navigate } from 'react-router-dom'
+
+import HomePage from './pages/HomePage/HomePage'
+import TeamSelectPage from './pages/TeamSelectPage/TeamSelectPage'
+import PlayerSelectPage from './pages/PlayerSelectPage/PlayerSelectPage'
+import PointsTablePage from './pages/PointsTablePage/PointsTablePage'
+import PlayerAnalysisPage from './pages/PlayerAnalysisPage/PlayerAnalysisPage'
+import TeamAnalysisPage from './pages/TeamAnalysisPage/TeamAnalysisPage'
+import Sidebar from './components/Sidebar/Sidebar'
+
 import './App.css'
+import ErrorPage from './pages/ErrorPage/ErrorPage'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+const App = () => (
+  <div className='app'>
+    <div className='sidebar-container'>
+      <Sidebar />
     </div>
-  )
-}
+    <main>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/teams' element={<TeamSelectPage />} />
+        <Route path='/team/:team_id' element={<TeamAnalysisPage />} />
+        <Route path='/players' element={<PlayerSelectPage />} />
+        <Route path='/player/:player_id' element={<PlayerAnalysisPage />} />
+        <Route path='/points-table' element={<PointsTablePage />} />
+        <Route path='/404' element={<ErrorPage />} />
+        <Route path='*' element={<Navigate to='/404' replace />} />
+      </Routes>
+    </main>
+  </div>
+)
 
 export default App

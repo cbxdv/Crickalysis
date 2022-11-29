@@ -1,0 +1,26 @@
+.player-analysis-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.player-header {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    margin-bottom: 60px;
+}
+
+.player-header img {
+    margin-right: 60px;
+}
+
+.analysis-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}

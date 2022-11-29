@@ -1,0 +1,32 @@
+.team-card {
+    width: 210;
+    height: 270;
+    box-shadow: 0 4px 4px 0 rgba(128, 128, 128, 0.445);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 30px;
+    border-radius: 14px;
+    padding: 30px;
+    cursor: pointer;
+    transition: transform linear .1s;
+}
+
+.team-card:hover {
+    transform: scale(1.01);
+}
+.team-card:active {
+    transform: scale(0.99);
+}
+
+.tflag-container {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 30px;
+}
+
+.tname-container {
+    font-size: 18px;
+    font-weight: bold;
+}

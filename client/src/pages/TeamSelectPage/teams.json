@@ -1,0 +1,42 @@
+[
+    {
+        "id": "AFG",
+        "name": "Afghanistan"
+    },
+    {
+        "id": "AUS",
+        "name": "Australia"
+    },
+    {
+        "id": "BAN",
+        "name": "Bangladesh"
+    },
+    {
+        "id": "ENG",
+        "name": "England"
+    },
+    {
+        "id": "IND",
+        "name": "India"
+    },
+    {
+        "id": "NZL",
+        "name": "New Zealand"
+    },
+    {
+        "id": "PAK",
+        "name": "Pakistan"
+    },
+    {
+        "id": "SOA",
+        "name": "South Africa"
+    },
+    {
+        "id": "SLK",
+        "name": "Sri Lanka"
+    },
+    {
+        "id": "WIN",
+        "name": "West Indies"
+    }
+]
