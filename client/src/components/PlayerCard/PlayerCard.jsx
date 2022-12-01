@@ -8,15 +8,15 @@ const PlayerCard = ({ player }) => {
     const navigate = useNavigate()
 
     const clickHandler = () => {
-        navigate(`/player/${player.player_id}`)
+        navigate(`/player/${player.playerId}`)
     }
 
     return (
         <div className="player-card" onClick={clickHandler}>
             <div className="pcimg-container">
-                <ImageViewer width={120} height={120} src={`http://localhost:5000/static/players/${player.player_id}.webp`} />
+                <ImageViewer width={120} height={120} src={`http://localhost:5000/static/players/${player.playerId}.webp`} />
             </div>
-            <span>{player.player_name}</span>
+            <span>{player.playerName}</span>
         </div>
     )
 }

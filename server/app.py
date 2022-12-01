@@ -1,5 +1,3 @@
-import os
-from shutil import rmtree
 from flask import Flask, request
 from flask_cors import CORS
 
@@ -31,9 +29,9 @@ def search_player():
     data = []
     for player in results:
         data.append({
-            'player_id': player[0],
-            'player_name': player[1],
-            'team_id': player[2]
+            'playerId': player[0],
+            'playerName': player[1],
+            'teamId': player[2]
         })
 
     return data

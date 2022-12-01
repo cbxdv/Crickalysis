@@ -74,25 +74,25 @@ def player_analysis(player_id: int):
     economy_graph = fig.to_html()
 
     return {
-        'player_id': pid,
-        'player_name': player_name,
+        'playerId': pid,
+        'playerName': player_name,
         'country': country,
         'analysis': {
             'boundaries': {
                 'name': 'Boundaries Analysis',
-                'graph_data': boundaries_graph
+                'graphData': boundaries_graph
             },
             'runs': {
                 'name': 'Runs Analysis',
-                'graph_data': runs_graph
+                'graphData': runs_graph
             },
             'wickets': {
                 'name': 'Wickets Analysis',
-                'graph_data': wickets_graph
+                'graphData': wickets_graph
             },
             'economy': {
                 'name': 'Player Economy Analysis',
-                'graph_data': economy_graph
+                'graphData': economy_graph
             }
         }
     }
@@ -102,7 +102,6 @@ def player_analysis(player_id: int):
 def team_analysis(team_id: str):
 
     statement = f'SELECT country FROM teams WHERE team_id = \'{team_id}\'';
-    print(statement)
     cur.execute(statement)
     data = cur.fetchone()
     team_country = data[0] # type: ignore
@@ -151,20 +150,20 @@ def team_analysis(team_id: str):
 
 
     return {
-        'team_id': team_id,
+        'teamId': team_id,
         'country': team_country,
         'analysis': {
             'win_loss_percentage': {
                 'name': 'Team Win Loss Percentages',
-                'graph_data': win_loss_percentage_graph
+                'graphData': win_loss_percentage_graph
             },
             'runs': {
                 'name': 'Runs For and Against',
-                'graph_data': runs_graph
+                'graphData': runs_graph
             },
-            'innnings': {
+            'innings': {
                 'name': 'Batting First and Bowling First Stats',
-                'graph_data': innings_graph
+                'graphData': innings_graph
             }
         }
     }

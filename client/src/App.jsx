@@ -7,9 +7,9 @@ import PointsTablePage from './pages/PointsTablePage/PointsTablePage'
 import PlayerAnalysisPage from './pages/PlayerAnalysisPage/PlayerAnalysisPage'
 import TeamAnalysisPage from './pages/TeamAnalysisPage/TeamAnalysisPage'
 import Sidebar from './components/Sidebar/Sidebar'
+import ErrorPage from './pages/ErrorPage/ErrorPage'
 
 import './App.css'
-import ErrorPage from './pages/ErrorPage/ErrorPage'
 
 const App = () => (
   <div className='app'>
@@ -20,7 +20,7 @@ const App = () => (
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/teams' element={<TeamSelectPage />} />
-        <Route path='/team/:team_id' element={<TeamAnalysisPage />} />
+        <Route path='/team/:teamId' element={<TeamAnalysisPage />} />
         <Route path='/players' element={<PlayerSelectPage />} />
         <Route path='/player/:player_id' element={<PlayerAnalysisPage />} />
         <Route path='/points-table' element={<PointsTablePage />} />

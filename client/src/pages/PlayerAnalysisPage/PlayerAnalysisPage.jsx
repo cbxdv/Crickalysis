@@ -38,11 +38,12 @@ const PlayerAnalysisPage = () => {
                     <img src={`http://localhost:5000/static/players/${params.player_id}.webp`} width={200} height={200} alt={params.player_id} />
                 </div>
                 <div>
-                    <h1>{data.player_name}</h1>
+                    <h1>{data.playerName}</h1>
+                    <span>Country: {data.country}</span>
                 </div>
             </div>
             <div className="analysis-container">
-                {Object.keys(data.analysis).map(f => <FrameViewer key={f} srcData={data.analysis[f].graph_data} />)}
+                {Object.keys(data.analysis).map(f => <FrameViewer key={f} srcData={data.analysis[f].graphData} />)}
             </div>
         </div>
     )

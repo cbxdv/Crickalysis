@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS match_results CASCADE;
 DROP TABLE IF EXISTS points_table CASCADE;
 
 CREATE TABLE teams(
-    team_id VARCHAR(3),
+    team_id VARCHAR(3), 
     country varchar(50),
     PRIMARY KEY(team_id)
 );
@@ -22,22 +22,6 @@ CREATE TABLE players (
     team_id VARCHAR(3),
     PRIMARY KEY (player_id),
     FOREIGN KEY (team_id) REFERENCES teams(team_id)
-);
-
-CREATE TABLE grounds(
-    ground_id VARCHAR(5),
-    name VARCHAR(100),
-    location VARCHAR(100),
-    matches INT,
-    won INT,
-    tied INT,
-    nr INT,
-    runs INT,
-    wickets INT,
-    balls INT,
-    average FLOAT,
-    rpo FLOAT,
-    PRIMARY KEY (ground_id)
 );
 
 CREATE TABLE matches(
@@ -59,7 +43,7 @@ CREATE TABLE bowlers(
     runs INT,
     wickets INT,
     economy FLOAT,
-    average FLOAT,
+    average FLOAT,  
     strike_rate FLOAT,
     opposition VARCHAR(3),
     FOREIGN KEY (player_id) REFERENCES players(player_id),

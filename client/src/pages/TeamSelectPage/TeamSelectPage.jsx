@@ -10,15 +10,15 @@ const TeamSelectPage = () => {
 
     const navigate = useNavigate()
 
-    const changePage = team_id => {
-        navigate(`/team/${team_id}`)
+    const changePage = teamId => {
+        navigate(`/team/${teamId}`)
     }
 
     return(
         <div className='team-select-page'>
             <h1>Select a Team</h1>
             <div className='teams-container'>
-                { TEAM_DATA.map(team => <TeamCard key={team.id} team={team} onClickHanlder={changePage} />) }
+                { TEAM_DATA.map(team => <TeamCard key={team.id} team={team} onClickHandler={changePage} />) }
             </div>
         </div>
     )

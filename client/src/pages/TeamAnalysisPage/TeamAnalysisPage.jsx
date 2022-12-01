@@ -13,9 +13,9 @@ const TeamAnalysisPage = () => {
     const params = useParams()
 
     const getData = async () => {
-        if (params && params.team_id) {
-            const team_id = params.team_id
-            const res = await fetch(`http://localhost:5000/team-analysis/${team_id}`)
+        if (params && params.teamId) {
+            const teamId = params.teamId
+            const res = await fetch(`http://localhost:5000/team-analysis/${teamId}`)
             const d = await res.json()
             setData(d)
             setTimeout(() => {
@@ -32,13 +32,13 @@ const TeamAnalysisPage = () => {
     return (
         <div>
             <div className="team-details-container">
-                <img src={`http://localhost:5000/static/flags/${data.team_id}.png`} />
+                <img src={`http://localhost:5000/static/flags/${data.teamId}.png`} />
                 <div>
                     <h1>{data.country}</h1>
                 </div>
             </div>
             <div className="analysis-container">
-                {Object.keys(data.analysis).map(f => <FrameViewer key={f} srcData={data.analysis[f].graph_data} />)}
+                {Object.keys(data.analysis).map(f => <FrameViewer key={f} srcData={data.analysis[f].graphData} />)}
             </div>
         </div>
     )

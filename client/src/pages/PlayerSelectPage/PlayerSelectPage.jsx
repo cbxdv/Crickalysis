@@ -43,7 +43,7 @@ const PlayerSelectPage = () => {
             {
                 isSearching ? <Loader icon /> : !searched ? 'Search for some players' : searched && searchResults.length == 0 ? <>No results found</> :  (
                     <div className="search-results-container">
-                        {searchResults.map(sr => <PlayerCard key={`psc-${sr.player_id}`} player={sr} />)}
+                        {searchResults.map(sr => <PlayerCard key={`psc-${sr.playerId}`} player={sr} />)}
                     </div>
                 )
             }

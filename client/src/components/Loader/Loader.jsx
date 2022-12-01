@@ -2,7 +2,7 @@ import './LoaderStyles.css'
 
 import LoadingGIF from '../../assets/loading.gif'
 
-const Loader = ({ fullSize = true, icon = false, small = false }) => {
+const Loader = ({ fullSize = true, icon = false }) => {
     return (
         <div className={fullSize ? 'loader-container' : ''}>
             { icon ? (<span className={`loader`}></span>) : (<img src={LoadingGIF} />) }
