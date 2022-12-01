@@ -6,8 +6,6 @@ from query import *
 
 pd.options.plotting.backend = 'plotly'
 
-graphs_file_location = 'analysis'
-
 from database import *
 
 cur = get_cursor()
