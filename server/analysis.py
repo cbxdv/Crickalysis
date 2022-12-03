@@ -3,12 +3,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 from query import *
+from database import *
 
 pd.options.plotting.backend = 'plotly'
 
-from database import *
-
 cur = get_cursor()
+
 
 def player_analysis(player_id: int):
 
@@ -29,7 +29,12 @@ def player_analysis(player_id: int):
         'sixes': sixes
     })
     df.set_index('opposition')
-    fig = px.bar(df, x='opposition', y=['fours', 'sixes'], title='Boundaries (Fours & Sixes)')
+    fig = px.bar(
+        df,
+        x='opposition',
+        y=['fours', 'sixes'],
+        title='Boundaries (Fours & Sixes)'
+    )
     boundaries_graph = fig.to_html()
 
     # Runs & Strike Rate
@@ -43,9 +48,14 @@ def player_analysis(player_id: int):
         'Strike Rate': strike_rate,
         'Opposition': opposition
     })
-    fig = px.line(df, x='Date', y=['Runs', 'Strike Rate'], hover_data=['Opposition'], title='Runs & Strike Rate')
+    fig = px.line(
+        df,
+        x='Date',
+        y=['Runs', 'Strike Rate'],
+        hover_data=['Opposition'],
+        title='Runs & Strike Rate'
+    )
     runs_graph = fig.to_html()
-
 
     # Wickets
     wickets_statement = query_player_wickets(player_id)
@@ -94,16 +104,14 @@ def player_analysis(player_id: int):
             }
         }
     }
-    
 
 
 def team_analysis(team_id: str):
 
-    statement = f'SELECT country FROM teams WHERE team_id = \'{team_id}\'';
+    statement = query_team_details(team_id)
     cur.execute(statement)
     data = cur.fetchone()
-    team_country = data[0] # type: ignore
-
+    team_country = data[0]  # type: ignore
 
     # Win Loss Percentages
     statement = query_team_win_loss_percentage(team_id)
@@ -112,14 +120,14 @@ def team_analysis(team_id: str):
     country, win, lost = zip(*data)
     fig = go.Figure()
     fig.add_trace(go.Bar(
-        y = country,
-        x = win,
+        y=country,
+        x=win,
         name='Win Percentages',
         orientation='h'
     ))
     fig.add_trace(go.Bar(
-        y = country,
-        x = lost,
+        y=country,
+        x=lost,
         name='Loss Percentage',
         orientation='h'
     ))
@@ -136,16 +144,26 @@ def team_analysis(team_id: str):
         'Runs': runs,
         'Opposition Runs': opp_runs
     })
-    fig = px.bar(df, x='Country', y=['Runs', 'Opposition Runs'], barmode='group', title='Total Runs Scored and Lost')
+    fig = px.bar(
+        df,
+        x='Country',
+        y=['Runs', 'Opposition Runs'],
+        barmode='group',
+        title='Total Runs Scored and Lost'
+    )
     runs_graph = fig.to_html()
 
     # Innings wins
     statement = query_team_inns_wins(team_id)
     cur.execute(statement)
     data = cur.fetchall()
-    fig = px.pie(values=data[0], names=['Batting First Win' ,'Batting First Loss' ,'Bowling First Win' ,'Bowling First Loss'], title='Batting First and Bowling First')
+    fig = px.pie(
+        values=data[0],
+        names=['Batting First Win', 'Batting First Loss',
+               'Bowling First Win', 'Bowling First Loss'],
+        title='Batting First and Bowling First'
+    )
     innings_graph = fig.to_html()
-
 
     return {
         'teamId': team_id,
@@ -174,7 +192,8 @@ def score_board_generator():
     country, won, matches, lost, net_run_rate, points = zip(*data)
     fig = go.Figure(data=[go.Table(
         header=dict(
-            values=['<b>Country</b>', '<b>Won</b>', '<b>Matches</b>', '<b>Lost</b>', '<b>Net Run Rate</b>', '<b>Points</b>'],
+            values=['<b>Country</b>', '<b>Won</b>', '<b>Matches</b>',
+                    '<b>Lost</b>', '<b>Net Run Rate</b>', '<b>Points</b>'],
             height=40,
             font=dict(color='white', size=12),
             fill_color='royalblue',

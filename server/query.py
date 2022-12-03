@@ -12,6 +12,7 @@ def query_player_search(q):
             10
     """
 
+
 def query_points_table():
     return """
         SELECT
@@ -45,8 +46,9 @@ def query_player_details(player_id):
             players
             JOIN teams ON players.team_id = teams.team_id
         WHERE
-            player_id ={player_id}
+            player_id = {player_id}
     """
+
 
 def query_player_boundaries(player_id):
     return f"""
@@ -57,10 +59,11 @@ def query_player_boundaries(player_id):
         FROM
             batsmen
         WHERE
-            player_id ={player_id}
+            player_id = {player_id}
         GROUP BY
             opposition
     """
+
 
 def query_player_runs_strike_rate(player_id):
     return f"""
@@ -80,7 +83,7 @@ def query_player_runs_strike_rate(player_id):
             batsmen
             JOIN matches ON batsmen.match_id = matches.match_id
         WHERE
-            player_id ={player_id}
+            player_id = {player_id}
         ORDER BY
             matches.date;
     """
@@ -106,6 +109,7 @@ def query_player_wickets(player_id):
             opposition;
     """
 
+
 def query_player_economy(player_id):
     return f"""
         SELECT
@@ -125,6 +129,13 @@ def query_player_economy(player_id):
         ORDER BY
             date
     """
+
+
+def query_team_details(team_id):
+    return f"""
+    SELECT country FROM teams WHERE team_id = \'{team_id}\'
+    """
+
 
 def query_team_win_loss_percentage(team_id):
     return f"""
@@ -194,6 +205,7 @@ def query_team_runs(team_id):
             opposition;
     """
 
+
 def query_team_inns_wins(team_id):
     return f"""
         SELECT
@@ -201,4 +213,4 @@ def query_team_inns_wins(team_id):
             (SELECT COUNT(*) FROM match_totals WHERE country = '{team_id}' AND inns = 1 AND result = 0) as batting_first_loss, 
             (SELECT COUNT(*) FROM match_totals WHERE country = '{team_id}' AND inns = 2 AND result = 1) as bowling_first_win,
             (SELECT COUNT(*) FROM match_totals WHERE country = '{team_id}' AND inns = 2 AND result = 0) as batting_first_loss; 
-    """ 
+    """

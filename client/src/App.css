@@ -1,15 +1,15 @@
 .app {
-    display: flex;
+	display: flex;
 }
 
 .sidebar-container {
-    width: 100px;
-    height: 100vh;
+	width: 100px;
+	height: 100vh;
 }
 
 main {
-    width: calc(100vw - 100px);
-    height: 100vh;
-    margin-left: auto;
-    padding: 60px;
+	width: calc(100vw - 100px);
+	height: 100vh;
+	margin-left: auto;
+	padding: 60px;
 }

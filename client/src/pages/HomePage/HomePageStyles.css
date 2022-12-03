@@ -1,43 +1,43 @@
 .home-page {
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+	min-height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .homepage-header {
-    margin-bottom: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	margin-bottom: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .home-cards-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .home-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 250px;
-    height: 250px;
-    border: 0.5px solid rgba(0, 0, 0, 0.096);
-    border-radius: 14px;
-    margin: 30px;
-    cursor: pointer;
-    font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 250px;
+	height: 250px;
+	border: 0.5px solid rgba(0, 0, 0, 0.096);
+	border-radius: 14px;
+	margin: 30px;
+	cursor: pointer;
+	font-size: 20px;
 }
 
 .home-card img {
-    margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 .home-card:active {
-    transform: scale(0.99);
+	transform: scale(0.99);
 }

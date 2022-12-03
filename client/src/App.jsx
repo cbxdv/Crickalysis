@@ -12,23 +12,26 @@ import ErrorPage from './pages/ErrorPage/ErrorPage'
 import './App.css'
 
 const App = () => (
-  <div className='app'>
-    <div className='sidebar-container'>
-      <Sidebar />
-    </div>
-    <main>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/teams' element={<TeamSelectPage />} />
-        <Route path='/team/:teamId' element={<TeamAnalysisPage />} />
-        <Route path='/players' element={<PlayerSelectPage />} />
-        <Route path='/player/:player_id' element={<PlayerAnalysisPage />} />
-        <Route path='/points-table' element={<PointsTablePage />} />
-        <Route path='/404' element={<ErrorPage />} />
-        <Route path='*' element={<Navigate to='/404' replace />} />
-      </Routes>
-    </main>
-  </div>
+	<div className='app'>
+		<div className='sidebar-container'>
+			<Sidebar />
+		</div>
+		<main>
+			<Routes>
+				<Route path='/' element={<HomePage />} />
+				<Route path='/teams' element={<TeamSelectPage />} />
+				<Route path='/team/:teamId' element={<TeamAnalysisPage />} />
+				<Route path='/players' element={<PlayerSelectPage />} />
+				<Route
+					path='/player/:player_id'
+					element={<PlayerAnalysisPage />}
+				/>
+				<Route path='/points-table' element={<PointsTablePage />} />
+				<Route path='/404' element={<ErrorPage />} />
+				<Route path='*' element={<Navigate to='/404' replace />} />
+			</Routes>
+		</main>
+	</div>
 )
 
 export default App

@@ -1,38 +1,42 @@
 .points-table-page {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .table-container {
-    width: 1000px;
-    height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	width: 1000px;
+	height: 700px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 table {
-    border-collapse: collapse;
+	border-collapse: collapse;
 }
 
-th, td {
-  padding: 20px;
-  font-family: Roboto;
-  text-align: center;
+th,
+td {
+	padding: 20px;
+	font-family: Roboto;
+	text-align: center;
 }
 
 thead th:nth-child(2) {
-    width: 200px;
+	width: 200px;
 }
 
-thead th:nth-child(3), thead th:nth-child(4) {
-    width: 100px;
+thead th:nth-child(3),
+thead th:nth-child(4) {
+	width: 100px;
 }
 
-thead th:nth-child(1), thead th:nth-child(5), thead th:nth-child(6) {
-    width: 150px;
+thead th:nth-child(1),
+thead th:nth-child(5),
+thead th:nth-child(6) {
+	width: 150px;
 }
