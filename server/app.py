@@ -20,7 +20,7 @@ def index():
 @app.route('/players')
 def search_player():
     args = request.args
-    q = args['q']
+    q = args.get('q')
     statement = query_player_search(q)
 
     cur.execute(statement)
